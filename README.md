@@ -1,6 +1,11 @@
-# 🍏 Mobile Testing App
 
-This is a mobile application built with [Expo](https://expo.dev), using TypeScript and modern React Native development practices.
+# 🍏 Grabber Grocery App
+
+This is a mobile application for browsing, searching, and managing grocery products, inspired by the Grabber Grocery App Figma design. The app is built with [Expo](https://expo.dev) using TypeScript and modern React Native development practices.
+
+## About This App
+
+The Grabber Grocery App is designed to help users easily explore a variety of fruits and grocery categories, view product details, and manage favorites. It features a clean, user-friendly interface and is ideal as a template or starting point for grocery, food delivery, or e-commerce mobile applications. The project demonstrates best practices in Expo, React Native, and TypeScript, and is based on a community Figma design.
 
 ## 🚀 Quick Start
 
