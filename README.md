@@ -1,50 +1,53 @@
-# Welcome to your Expo app 👋
+# 🍏 Mobile Testing App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+This is a mobile application built with [Expo](https://expo.dev), using TypeScript and modern React Native development practices.
 
-## Get started
+## 🚀 Quick Start
 
-1. Install dependencies
-
+1. Install dependencies:
    ```bash
    npm install
    ```
 
-2. Start the app
-
+2. Start the app:
    ```bash
    npx expo start
    ```
 
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
+You can open the app in:
+- [Development build](https://docs.expo.dev/develop/development-builds/introduction/)
 - [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
 - [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+- [Expo Go](https://expo.dev/go)
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## 📁 Project Structure
 
-## Get a fresh project
+- `app/` — main app logic and screens (file-based routing)
+- `components/` — reusable UI components
+- `constants/` — static data for cards, categories, fruits
+- `types/` — TypeScript types for props and data
+- `assets/` — images and fonts
 
-When you're ready, run:
+## 🛠️ Technologies
 
-```bash
-npm run reset-project
-```
+- Expo + React Native
+- TypeScript
+- File-based routing
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## 📝 Development
 
-## Learn more
+Edit files in the `app/` directory to create or update screens. Use components from `components/` for UI building blocks.
 
-To learn more about developing your project with Expo, look at the following resources:
+## 📚 Useful Links
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+- [Expo Documentation](https://docs.expo.dev/)
+- [React Native](https://reactnative.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
 
-## Join the community
+## 🎨 Figma Design
 
-Join our community of developers creating universal apps.
+- [Figma Prototype (by Design with Kingsley)](https://www.figma.com/design/W8rmyIAqsMgwQixIInPbU7/Grabber-Grocrey-App--Community-?node-id=0-1&p=f&t=HXrInCLWaRGtMZ1V-0)
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+---
+
+Feel free to contribute or customize the app for your needs!
