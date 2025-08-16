@@ -14,6 +14,7 @@ export default function TabsLayout() {
         options={{
           headerTitle: "Grabber",
           tabBarLabel: "Home",
+          animation: "shift",
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="home" color={color} size={size} />
           ),
@@ -23,6 +24,7 @@ export default function TabsLayout() {
         name="favorite"
         options={{
           tabBarLabel: "Favorite",
+          animation: "shift",
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="heart-outline" color={color} size={size} />
           ),
@@ -32,25 +34,17 @@ export default function TabsLayout() {
         name="search"
         options={{
           tabBarLabel: "Search",
+          animation: "shift",
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="search-outline" color={color} size={size} />
           ),
         }}
       />
       <Tabs.Screen
-        name="profile"
-        options={{
-          tabBarLabel: "Profile",
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="person-outline" color={color} size={size} />
-          ),
-        }}
-      />
-      <Tabs.Screen
         name="cart"
         options={{
-          headerShown: false,
           tabBarLabel: "Cart",
+          animation: "shift",
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="cart-outline" color={color} size={size} />
           ),

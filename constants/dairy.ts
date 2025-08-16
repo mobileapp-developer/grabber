@@ -1,5 +1,6 @@
 export const dairy = [
     {
+        id: "dairy-1",
         title: "Milk",
         // image: require('@/assets/dairy/milk.png'),
         price: 1.0,
@@ -7,6 +8,7 @@ export const dairy = [
         count: 20,
     },
     {
+        id: "dairy-2",
         title: "Cheese",
         // image: require('@/assets/dairy/cheese.png'),
         price: 2.5,
@@ -14,6 +16,7 @@ export const dairy = [
         count: 15,
     },
     {
+        id: "dairy-3",
         title: "Yogurt",
         // image: require('@/assets/dairy/yogurt.png'),
         price: 1.8,
@@ -21,6 +24,7 @@ export const dairy = [
         count: 12,
     },
     {
+        id: "dairy-4",
         title: "Butter",
         // image: require('@/assets/dairy/butter.png'),
         price: 2.0,
@@ -28,6 +32,7 @@ export const dairy = [
         count: 10,
     },
     {
+        id: "dairy-5",
         title: "Cream",
         // image: require('@/assets/dairy/cream.png'),
         price: 2.2,
@@ -35,6 +40,7 @@ export const dairy = [
         count: 8,
     },
     {
+        id: "dairy-6",
         title: "Sour Cream",
         // image: require('@/assets/dairy/sour_cream.png'),
         price: 2.4,

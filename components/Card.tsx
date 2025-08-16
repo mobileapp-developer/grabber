@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Image, StyleSheet, Text, View } from 'react-native';
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 import { CartContext } from '@/context/CartContext';
 import { Ionicons } from '@expo/vector-icons';
@@ -7,7 +7,8 @@ import { CardProps } from '../types/CardType.type';
 import AddButton from './AddButton';
 
 const Card = ({ id, title, image, price, rating, count, onPress }: CardProps & { id: string }) => {
-    const { addToCart, decreaseQuantity } = useContext(CartContext);
+    const { addToCart, decreaseQuantity, addToFavorites, removeFromFavorites, isFavorite } = useContext(CartContext);
+    const favorite = isFavorite(id);
     return (
         <View>
             <View style={styles.container}>
@@ -16,6 +17,13 @@ const Card = ({ id, title, image, price, rating, count, onPress }: CardProps & {
                     <View style={styles.addButton}>
                         <AddButton onAdd={() => addToCart({ id, title, image, price, rating, count })} onRemove={() => decreaseQuantity(id)} />
                     </View>
+
+                    <TouchableOpacity
+                        style={styles.favoriteButton}
+                        onPress={() => favorite ? removeFromFavorites(id) : addToFavorites({ id, title, image, price, rating, count })}
+                    >
+                        <Ionicons name={favorite ? 'heart' : 'heart-outline'} size={22} color={favorite ? '#ff4d4d' : '#000'} />
+                    </TouchableOpacity>
                 </View>
 
                 {/* Product Name */}
@@ -96,5 +104,15 @@ const styles = StyleSheet.create({
         position: "absolute",
         bottom: 10,
         left: -35,
+    }
+
+    ,
+    favoriteButton: {
+        position: 'absolute',
+        top: 8,
+        right: 8,
+        backgroundColor: 'transparent',
+        padding: 6,
+        borderRadius: 20,
     }
 })

@@ -1,6 +1,5 @@
 import React, { createContext, ReactNode, useState } from 'react';
 
-// Cart item interface
 export interface CartItem {
   id: string;
   title: string;
@@ -8,10 +7,9 @@ export interface CartItem {
   price: number;
   rating: number;
   count: number;
-  quantity: number;
+  quantity?: number;
 }
 
-// Cart context interface
 interface CartContextType {
   cartItems: CartItem[];
   addToCart: (item: Omit<CartItem, 'quantity'>) => void;
@@ -20,9 +18,13 @@ interface CartContextType {
   decreaseQuantity: (id: string) => void;
   clearCart: () => void;
   getTotalPrice: () => number;
+  // Favorites
+  favorites: CartItem[];
+  addToFavorites: (item: Omit<CartItem, 'quantity'>) => void;
+  removeFromFavorites: (id: string) => void;
+  isFavorite: (id: string) => boolean;
 }
 
-// Create the Cart context
 export const CartContext = createContext<CartContextType>({
   cartItems: [],
   addToCart: () => {},
@@ -31,19 +33,22 @@ export const CartContext = createContext<CartContextType>({
   decreaseQuantity: () => {},
   clearCart: () => {},
   getTotalPrice: () => 0,
+  favorites: [],
+  addToFavorites: () => {},
+  removeFromFavorites: () => {},
+  isFavorite: () => false,
 });
 
-// Cart provider component
 export const CartProvider: React.FC<{children: ReactNode}> = ({ children }) => {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
+  const [favorites, setFavorites] = useState<CartItem[]>([]);
 
-  // Add item to cart
   const addToCart = (item: Omit<CartItem, 'quantity'>) => {
     setCartItems(prevItems => {
       const existingItem = prevItems.find(i => i.id === item.id);
       if (existingItem) {
         return prevItems.map(i => 
-          i.id === item.id ? {...i, quantity: i.quantity + 1} : i
+          i.id === item.id ? {...i, quantity: (i.quantity ?? 0) + 1} : i
         );
       } else {
         return [...prevItems, {...item, quantity: 1}];
@@ -51,21 +56,18 @@ export const CartProvider: React.FC<{children: ReactNode}> = ({ children }) => {
     });
   };
 
-  // Remove item from cart
   const removeFromCart = (id: string) => {
     setCartItems(prevItems => prevItems.filter(item => item.id !== id));
   };
 
-  // Increase item quantity
   const increaseQuantity = (id: string) => {
     setCartItems(prevItems => 
       prevItems.map(item => 
-        item.id === id ? {...item, quantity: item.quantity + 1} : item
+  item.id === id ? {...item, quantity: (item.quantity ?? 0) + 1} : item
       )
     );
   };
 
-  // Decrease item quantity
   const decreaseQuantity = (id: string) => {
     setCartItems(prevItems => {
       const item = prevItems.find(i => i.id === id);
@@ -73,19 +75,32 @@ export const CartProvider: React.FC<{children: ReactNode}> = ({ children }) => {
         return prevItems.filter(i => i.id !== id);
       }
       return prevItems.map(i => 
-        i.id === id ? {...i, quantity: i.quantity - 1} : i
+  i.id === id ? {...i, quantity: Math.max((i.quantity ?? 1) - 1, 0)} : i
       );
     });
   };
 
-  // Clear cart
   const clearCart = () => {
     setCartItems([]);
   };
 
-  // Get total price
   const getTotalPrice = () => {
-    return cartItems.reduce((total, item) => total + (item.price * item.quantity), 0);
+  return cartItems.reduce((total, item) => total + (item.price * (item.quantity ?? 0)), 0);
+  };
+
+  const addToFavorites = (item: Omit<CartItem, 'quantity'>) => {
+    setFavorites(prev => {
+      if (prev.find(i => i.id === item.id)) return prev;
+      return [...prev, {...item}];
+    });
+  };
+
+  const removeFromFavorites = (id: string) => {
+    setFavorites(prev => prev.filter(i => i.id !== id));
+  };
+
+  const isFavorite = (id: string) => {
+    return favorites.some(f => f.id === id);
   };
 
   return (
@@ -97,6 +112,12 @@ export const CartProvider: React.FC<{children: ReactNode}> = ({ children }) => {
       decreaseQuantity,
       clearCart,
       getTotalPrice
+      ,
+      // favorites
+      favorites,
+      addToFavorites,
+      removeFromFavorites,
+      isFavorite
     }}>
       {children}
     </CartContext.Provider>

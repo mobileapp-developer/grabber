@@ -13,6 +13,7 @@ const AllVegetables = () => {
                     {vegetables.map((item, index) => (
                         <Card
                             key={index}
+                            id={item.id}
                             title={item.title}
                             //@ts-ignore
                             image={item.image}

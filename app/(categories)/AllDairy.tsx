@@ -1,8 +1,6 @@
 import { ScrollView, StyleSheet, View } from 'react-native'
 import React from 'react'
 import Card from '@/components/Card';
-import { fruits } from '@/constants/fruits';
-import { vegetables } from '@/constants/vegetables';
 import { dairy } from '@/constants/dairy';
 
 const AllVegetables = () => {
@@ -14,7 +12,8 @@ const AllVegetables = () => {
                     {dairy.map((item, index) => (
                         <Card
                             key={index}
-                            title={item.title}
+                            id={item.id}
+                            title={item.title ?? ''}
                             //@ts-ignore
                             image={item.image}
                             price={item.price}

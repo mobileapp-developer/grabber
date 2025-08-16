@@ -1,23 +1,27 @@
-import React from "react";
-import { Dimensions, FlatList, ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import { Link, useRouter } from "expo-router";
 import Card from "@/components/Card";
 import CategoryButton from "@/components/CategoryButton";
 import OfferCard from "@/components/OfferCard";
+import ViewBasket from '@/components/ViewBasket';
 import { biscuits } from "@/constants/biscuits";
 import { cards } from "@/constants/cards";
 import { categories } from "@/constants/categories";
 import { detergents } from "@/constants/detergents";
 import { fruits } from "@/constants/fruits";
+import { CartContext } from '@/context/CartContext';
+import { Link, useRouter } from "expo-router";
+import React, { useContext } from "react";
+import { Dimensions, FlatList, ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 const CARD_WIDTH = 380 + 24;
 
 export default function Home() {
 
   const router = useRouter();
+  const { cartItems } = useContext(CartContext);
 
   return (
-    <ScrollView contentContainerStyle={styles.container}>
+    <View style={{ flex: 1 }}>
+      <ScrollView contentContainerStyle={styles.container}>
 
       {/* Offers */}
       <View style={{ width: "100%", height: 230, justifyContent: "center", alignItems: "center" }}>
@@ -72,9 +76,9 @@ export default function Home() {
           <Text style={styles.seeAllText}>See all</Text>
         </Link>
       </View>
-      <View style={{ flexDirection: "row", flexWrap: "wrap", justifyContent: "center", alignItems: "center" }}>
+      <View style={styles.categoryButtonContainer}>
         <FlatList
-          data={fruits.slice(0, 5)}
+          data={fruits}
           horizontal
           showsHorizontalScrollIndicator={false}
           contentContainerStyle={{
@@ -102,7 +106,7 @@ export default function Home() {
           <Text style={styles.seeAllText}>See all</Text>
         </TouchableOpacity>
       </View>
-      <View style={{ flexDirection: "row", flexWrap: "wrap", justifyContent: "center", alignItems: "center" }}>
+      <View style={styles.categoryButtonContainer}>
         <FlatList
           data={detergents}
           horizontal
@@ -132,7 +136,7 @@ export default function Home() {
           <Text style={styles.seeAllText}>See all</Text>
         </TouchableOpacity>
       </View>
-      <View style={{ flexDirection: "row", flexWrap: "wrap", justifyContent: "center", alignItems: "center" }}>
+      <View style={styles.categoryButtonContainer}>
         <FlatList
           data={biscuits}
           horizontal
@@ -155,8 +159,10 @@ export default function Home() {
         />
       </View>
 
-      <StatusBar barStyle="dark-content" />
-    </ScrollView>
+        <StatusBar barStyle="dark-content" />
+      </ScrollView>
+      <ViewBasket onPress={() => router.push('/(tabs)/cart')} />
+    </View>
   );
 }
 
@@ -170,7 +176,6 @@ const styles = StyleSheet.create({
     flexWrap: "wrap",
     justifyContent: "center",
     alignItems: "center",
-    bottom: 20,
   },
   popularCategoriesContainer: {
     flexDirection: 'row',

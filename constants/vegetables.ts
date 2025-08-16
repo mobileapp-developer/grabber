@@ -1,5 +1,6 @@
 export const vegetables = [
     {
+        id: "vegetable_1",
         title: "Carrot",
         // image: require('@/assets/vegetables/carrot.png'),
         price: 1.5,
@@ -7,6 +8,7 @@ export const vegetables = [
         count: 10,
     },
     {
+        id: "vegetable_2",
         title: "Broccoli",
         // image: require('@/assets/vegetables/broccoli.png'),
         price: 2.0,
@@ -14,6 +16,7 @@ export const vegetables = [
         count: 8,
     },
     {
+        id: "vegetable_3",
         title: "Spinach",
         // image: require('@/assets/vegetables/spinach.png'),
         price: 1.8,
@@ -21,6 +24,7 @@ export const vegetables = [
         count: 12,
     },
     {
+        id: "vegetable_4",
         title: "Tomato",
         // image: require('@/assets/vegetables/tomato.png'),
         price: 1.2,
@@ -28,6 +32,7 @@ export const vegetables = [
         count: 15,
     },
     {
+        id: "vegetable_5",
         title: "Cucumber",
         // image: require('@/assets/vegetables/cucumber.png'),
         price: 1.0,
@@ -35,6 +40,7 @@ export const vegetables = [
         count: 20,
     },
     {
+        id: "vegetable_6",
         title: "Bell Pepper",
         // image: require('@/assets/vegetables/bell_pepper.png'),
         price: 1.3,
@@ -42,6 +48,7 @@ export const vegetables = [
         count: 18,
     },
     {
+        id: "vegetable_7",
         title: "Zucchini",
         // image: require('@/assets/vegetables/zucchini.png'),
         price: 1.4,
@@ -49,6 +56,7 @@ export const vegetables = [
         count: 10,
     },
     {
+        id: "vegetable_8",
         title: "Eggplant",
         // image: require('@/assets/vegetables/eggplant.png'),
         price: 1.6,
