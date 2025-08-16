@@ -1,5 +1,6 @@
 export const fruits = [
     {
+        id: 'fruit1',
         title: "Banana",
         image: require('@/assets/images/fruits/fruit1.png'),
         price: 1.99,
@@ -7,6 +8,7 @@ export const fruits = [
         count: 100,
     },
     {
+        id: 'fruit2',
         title: "Pepper",
         image: require('@/assets/images/fruits/fruit2.png'),
         price: 2.99,
@@ -14,6 +16,7 @@ export const fruits = [
         count: 217,
     },
     {
+        id: 'fruit3',
         title: "Orange",
         image: require('@/assets/images/fruits/fruit3.png'),
         price: 1.49,
@@ -21,6 +24,7 @@ export const fruits = [
         count: 150,
     },
     {
+        id: 'fruit4',
         title: "Lemon",
         image: require('@/assets/images/fruits/fruit4.png'),
         price: 3.99,
@@ -28,6 +32,7 @@ export const fruits = [
         count: 80,
     },
     {
+        id: 'fruit5',
         title: "Water Melon",
         image: require('@/assets/images/fruits/fruit5.png'),
         price: 2.49,
@@ -35,6 +40,7 @@ export const fruits = [
         count: 217,
     },
     {
+        id: 'fruit6',
         title: "Grape",
         image: require('@/assets/images/fruits/fruit6.png'),
         price: 1.69,
@@ -42,6 +48,7 @@ export const fruits = [
         count: 217,
     },
     {
+        id: 'fruit7',
         title: "Paw Paw",
         image: require('@/assets/images/fruits/fruit7.png'),
         price: 2.99,
@@ -49,6 +56,7 @@ export const fruits = [
         count: 107,
     },
     {
+        id: 'fruit8',
         title: "Strawberry",
         image: require('@/assets/images/fruits/fruit8.png'),
         price: 3.49,
@@ -56,6 +64,7 @@ export const fruits = [
         count: 150,
     },
     {
+        id: 'fruit9',
         title: "Apple",
         image: require('@/assets/images/fruits/fruit9.png'),
         price: 1.99,
@@ -63,6 +72,7 @@ export const fruits = [
         count: 200,
     },
     {
+        id: 'fruit10',
         title: "Mango",
         image: require('@/assets/images/fruits/fruit10.png'),
         price: 1.99,

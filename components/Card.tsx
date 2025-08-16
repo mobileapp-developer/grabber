@@ -1,17 +1,20 @@
-import React from 'react'
-import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import { Ionicons } from '@expo/vector-icons'
-import { CardProps } from '../types/CardType.type'
+import React, { useContext } from 'react';
+import { Image, StyleSheet, Text, View } from 'react-native';
+
+import { CartContext } from '@/context/CartContext';
+import { Ionicons } from '@expo/vector-icons';
+import { CardProps } from '../types/CardType.type';
 import AddButton from './AddButton';
 
-const Card = ({ title, image, price, rating, count }: CardProps) => {
+const Card = ({ id, title, image, price, rating, count, onPress }: CardProps & { id: string }) => {
+    const { addToCart, decreaseQuantity } = useContext(CartContext);
     return (
         <View>
             <View style={styles.container}>
                 <View style={styles.imageContainer}>
                     <Image source={image} />
                     <View style={styles.addButton}>
-                        <AddButton onAdd={() => console.log('Add')} onRemove={() => console.log('Remove')} />
+                        <AddButton onAdd={() => addToCart({ id, title, image, price, rating, count })} onRemove={() => decreaseQuantity(id)} />
                     </View>
                 </View>
 

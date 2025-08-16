@@ -1,5 +1,6 @@
 export const biscuits = [
     {
+        id: 'biscuit1',
         title: "Loacker",
         image: require('@/assets/images/biscuits/biscuit1.png'),
         price: 2.5,
@@ -7,6 +8,7 @@ export const biscuits = [
         count: 10,
     },
     {
+        id: 'biscuit2',
         title: "Loacker",
         image: require('@/assets/images/biscuits/biscuit2.png'),
         price: 3.0,
@@ -14,6 +16,7 @@ export const biscuits = [
         count: 15,
     },
     {
+        id: 'biscuit3',
         title: "Biscoff",
         image: require('@/assets/images/biscuits/biscuit3.png'),
         price: 2.0,
@@ -21,6 +24,7 @@ export const biscuits = [
         count: 8,
     },
     {
+        id: 'biscuit4',
         title: "TUC",
         image: require('@/assets/images/biscuits/biscuit4.png'),
         price: 2.8,
@@ -28,6 +32,7 @@ export const biscuits = [
         count: 12,
     },
     {
+        id: 'biscuit5',
         title: "TUC",
         image: require('@/assets/images/biscuits/biscuit5.png'),
         price: 2.3,

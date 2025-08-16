@@ -1,14 +1,14 @@
 import React from "react";
-import { Dimensions, FlatList, ScrollView, StyleSheet, View, Text, TouchableOpacity, StatusBar } from "react-native";
+import { Dimensions, FlatList, ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { Link, useRouter } from "expo-router";
-import OfferCard from "@/components/OfferCard";
-import CategoryButton from "@/components/CategoryButton";
 import Card from "@/components/Card";
+import CategoryButton from "@/components/CategoryButton";
+import OfferCard from "@/components/OfferCard";
+import { biscuits } from "@/constants/biscuits";
 import { cards } from "@/constants/cards";
 import { categories } from "@/constants/categories";
-import { fruits } from "@/constants/fruits";
 import { detergents } from "@/constants/detergents";
-import { biscuits } from "@/constants/biscuits";
+import { fruits } from "@/constants/fruits";
 
 const CARD_WIDTH = 380 + 24;
 
@@ -80,9 +80,10 @@ export default function Home() {
           contentContainerStyle={{
             paddingHorizontal: 12,
           }}
-          keyExtractor={(_, idx) => idx.toString()}
+          keyExtractor={(item) => item.id}
           renderItem={({ item }) => (
             <Card
+              id={item.id}
               title={item.title}
               image={item.image}
               price={item.price}
@@ -109,9 +110,10 @@ export default function Home() {
           contentContainerStyle={{
             paddingHorizontal: 12,
           }}
-          keyExtractor={(_, idx) => idx.toString()}
+          keyExtractor={(item) => item.id}
           renderItem={({ item }) => (
             <Card
+              id={item.id}
               title={item.title}
               image={item.image}
               price={item.price}
@@ -138,9 +140,10 @@ export default function Home() {
           contentContainerStyle={{
             paddingHorizontal: 12,
           }}
-          keyExtractor={(_, idx) => idx.toString()}
+          keyExtractor={(item) => item.id}
           renderItem={({ item }) => (
             <Card
+              id={item.id}
               title={item.title}
               image={item.image}
               price={item.price}
