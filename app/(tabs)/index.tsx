@@ -1,12 +1,14 @@
 import React from "react";
 import { Dimensions, FlatList, ScrollView, StyleSheet, View, Text, TouchableOpacity, StatusBar } from "react-native";
+import { Link, useRouter } from "expo-router";
 import OfferCard from "@/components/OfferCard";
 import CategoryButton from "@/components/CategoryButton";
 import Card from "@/components/Card";
 import { cards } from "@/constants/cards";
 import { categories } from "@/constants/categories";
 import { fruits } from "@/constants/fruits";
-import { Link, useRouter } from "expo-router";
+import { detergents } from "@/constants/detergents";
+import { biscuits } from "@/constants/biscuits";
 
 const CARD_WIDTH = 380 + 24;
 
@@ -16,6 +18,8 @@ export default function Home() {
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
+
+      {/* Offers */}
       <View style={{ width: "100%", height: 230, justifyContent: "center", alignItems: "center" }}>
         <FlatList
           data={cards}
@@ -42,7 +46,6 @@ export default function Home() {
           )}
         />
       </View>
-
       <View style={styles.categoryButtonContainer}>
         <FlatList
           data={categories}
@@ -56,24 +59,22 @@ export default function Home() {
             <CategoryButton
               category={item.category}
               image={item.image}
-              onPress={() => { alert(`Selected category: ${item.category}`); }}
+              onPress={() => { router.push(item.route as any); }}
             />
           )}
         />
       </View>
 
-      {/* Popular Categories */}
+      {/* Fruits FlatList */}
       <View style={styles.popularCategoriesContainer}>
         <Text style={styles.categoryName}>Fruits</Text>
         <Link href="/(categories)/AllFruits">
           <Text style={styles.seeAllText}>See all</Text>
         </Link>
       </View>
-
-      {/* Fruits FlatList */}
       <View style={{ flexDirection: "row", flexWrap: "wrap", justifyContent: "center", alignItems: "center" }}>
         <FlatList
-          data={fruits}
+          data={fruits.slice(0, 5)}
           horizontal
           showsHorizontalScrollIndicator={false}
           contentContainerStyle={{
@@ -93,12 +94,63 @@ export default function Home() {
         />
       </View>
 
-      {/* <View style={[styles.popularCategoriesContainer, { top: 10 }]}>
-        <Text style={styles.categoryName}>Fruits</Text>
-        <TouchableOpacity onPress={() => { alert('See all fruits'); }}>
+      {/* Detergents FlatList */}
+      <View style={[styles.popularCategoriesContainer, { marginTop: 12 }]}>
+        <Text style={styles.categoryName}>Detergents</Text>
+        <TouchableOpacity onPress={() => { router.push('/(categories)/AllDetergents'); }}>
           <Text style={styles.seeAllText}>See all</Text>
         </TouchableOpacity>
-      </View> */}
+      </View>
+      <View style={{ flexDirection: "row", flexWrap: "wrap", justifyContent: "center", alignItems: "center" }}>
+        <FlatList
+          data={detergents}
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          contentContainerStyle={{
+            paddingHorizontal: 12,
+          }}
+          keyExtractor={(_, idx) => idx.toString()}
+          renderItem={({ item }) => (
+            <Card
+              title={item.title}
+              image={item.image}
+              price={item.price}
+              rating={item.rating}
+              count={item.count}
+              onPress={() => { alert('Product selected'); }}
+            />
+          )}
+        />
+      </View>
+
+      {/* Biscuits FlatList */}
+      <View style={[styles.popularCategoriesContainer, { marginTop: 12 }]}>
+        <Text style={styles.categoryName}>Biscuit</Text>
+        <TouchableOpacity onPress={() => { router.push('/(categories)/AllBiscuits'); }}>
+          <Text style={styles.seeAllText}>See all</Text>
+        </TouchableOpacity>
+      </View>
+      <View style={{ flexDirection: "row", flexWrap: "wrap", justifyContent: "center", alignItems: "center" }}>
+        <FlatList
+          data={biscuits}
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          contentContainerStyle={{
+            paddingHorizontal: 12,
+          }}
+          keyExtractor={(_, idx) => idx.toString()}
+          renderItem={({ item }) => (
+            <Card
+              title={item.title}
+              image={item.image}
+              price={item.price}
+              rating={item.rating}
+              count={item.count}
+              onPress={() => { alert('Product selected'); }}
+            />
+          )}
+        />
+      </View>
 
       <StatusBar barStyle="dark-content" />
     </ScrollView>

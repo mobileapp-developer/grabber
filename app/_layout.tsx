@@ -14,8 +14,9 @@ export default function RootLayout() {
       <Stack.Screen
         name="(categories)"
         options={{
-          headerTitle: "Fruits",
-          headerLargeTitle: true,
+          headerShown: false,
+          headerTitle: "All",
+          headerLargeTitle: false,
           headerTransparent: true,
           headerBlurEffect: 'light',
         }} />

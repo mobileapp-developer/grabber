@@ -1,0 +1,37 @@
+export const biscuits = [
+    {
+        title: "Loacker",
+        image: require('@/assets/images/biscuits/biscuit1.png'),
+        price: 2.5,
+        rating: 4.5,
+        count: 10,
+    },
+    {
+        title: "Loacker",
+        image: require('@/assets/images/biscuits/biscuit2.png'),
+        price: 3.0,
+        rating: 4.7,
+        count: 15,
+    },
+    {
+        title: "Biscoff",
+        image: require('@/assets/images/biscuits/biscuit3.png'),
+        price: 2.0,
+        rating: 4.2,
+        count: 8,
+    },
+    {
+        title: "TUC",
+        image: require('@/assets/images/biscuits/biscuit4.png'),
+        price: 2.8,
+        rating: 4.6,
+        count: 12,
+    },
+    {
+        title: "TUC",
+        image: require('@/assets/images/biscuits/biscuit5.png'),
+        price: 2.3,
+        rating: 4.3,
+        count: 9,
+    },
+]
