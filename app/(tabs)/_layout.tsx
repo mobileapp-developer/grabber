@@ -47,8 +47,9 @@ export default function TabsLayout() {
         }}
       />
       <Tabs.Screen
-        name="menu"
+        name="cart"
         options={{
+          headerShown: false,
           tabBarLabel: "Cart",
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="cart-outline" color={color} size={size} />

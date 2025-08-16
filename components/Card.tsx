@@ -1,14 +1,18 @@
 import React from 'react'
-import { Alert, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import { Ionicons } from '@expo/vector-icons'
 import { CardProps } from '../types/CardType.type'
+import AddButton from './AddButton';
 
-const Card = ({ title, image, price, rating, count, onPress }: CardProps) => {
+const Card = ({ title, image, price, rating, count }: CardProps) => {
     return (
-        <TouchableOpacity onPress={onPress}>
+        <View>
             <View style={styles.container}>
                 <View style={styles.imageContainer}>
                     <Image source={image} />
+                    <View style={styles.addButton}>
+                        <AddButton onAdd={() => console.log('Add')} onRemove={() => console.log('Remove')} />
+                    </View>
                 </View>
 
                 {/* Product Name */}
@@ -31,7 +35,7 @@ const Card = ({ title, image, price, rating, count, onPress }: CardProps) => {
                     </Text>
                 </View>
             </View>
-        </TouchableOpacity>
+        </View>
     )
 };
 
@@ -56,9 +60,9 @@ const styles = StyleSheet.create({
         borderRadius: 12,
     },
     title: {
-        paddingLeft: 8, 
-        fontSize: 18, 
-        fontWeight: "bold", 
+        paddingLeft: 8,
+        fontSize: 18,
+        fontWeight: "bold",
         top: 4,
     },
     productRatingContainer: {
@@ -83,4 +87,11 @@ const styles = StyleSheet.create({
         fontWeight: "bold",
         color: "#000",
     },
+    addButton: {
+        justifyContent: "center",
+        alignItems: "center",
+        position: "absolute",
+        bottom: 10,
+        left: -35,
+    }
 })
